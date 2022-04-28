@@ -1,0 +1,30 @@
+$min-width: xs;
+$max-width: xl;
+$desktop-breakpoint: lg;
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1500px,
+) !default;
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+) !default;
+
+$container-padding-x: 15px;
+$variable-prefix: bs- !default;
+
+$modal-xxl: 1520px !default;
+$modal-xl: 1160px !default;
+$modal-lg: 800px !default;
+$modal-md: 600px !default;
+$modal-sm: 300px !default;

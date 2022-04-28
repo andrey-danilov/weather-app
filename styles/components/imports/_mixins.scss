@@ -1,0 +1,24 @@
+@mixin reset-button-styles() {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+@mixin make-container() {
+  width: 1300px;
+  max-width: 1300px;
+  height: fit-content;
+  margin: 0 auto;
+
+  @include media-breakpoint-down(xxl) {
+    padding: 0 15px;
+  }
+}
