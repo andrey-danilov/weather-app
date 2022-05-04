@@ -1,28 +1,23 @@
 import { StatusCodes } from 'http-status-codes'
 import {
-  ADD_ERROR_MESSAGE,
   ADD_WEATHER_ITEM,
-  RESET_STATE,
-  SET_PROCESSING_FLAG,
   ADD_SELECTED_DAY,
 } from '@/store/weather/config/mutations.type'
 import {
-  SET_RESET_STATE,
   SET_SELECTED_DAY,
   SET_WEATHER,
 } from '@/store/weather/config/actions.type'
+import {
+  ADD_ERROR_MESSAGE,
+  RESET_STATE,
+  SET_PROCESSING_FLAG,
+} from '@/store/config/mutations.type'
+import { SET_RESET_STATE } from '@/store/config/actions.type'
 
 const defaultState = {
   processing: false,
   errorMessage: '',
   weather: null,
-  places: [
-    {
-      name: 'Kherson',
-      lat: 46,
-      lon: 31,
-    },
-  ],
 }
 
 export const state = () => ({
@@ -30,7 +25,6 @@ export const state = () => ({
   errorMessage: defaultState.errorMessage,
   weather: defaultState.weather,
   selectedDay: null,
-  places: defaultState.places,
 })
 
 export const mutations = {
@@ -58,12 +52,12 @@ export const mutations = {
 }
 
 export const actions = {
-  async [SET_WEATHER]({ commit, getters }) {
+  async [SET_WEATHER]({ commit }, location) {
     try {
       commit(SET_PROCESSING_FLAG, true)
 
       const { data, status } = await this.$api.weather.getWeatherByCoordinates(
-        getters.getCoordinates
+        location
       )
 
       if (status === StatusCodes.OK) {
@@ -91,10 +85,6 @@ export const actions = {
 }
 
 export const getters = {
-  entityState(state) {
-    return state
-  },
-
   getCoordinates(state) {
     return state.places[0]
   },

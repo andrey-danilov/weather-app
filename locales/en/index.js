@@ -1,30 +1,22 @@
 export default {
   button: {
-    continue: 'Продолжить',
+    delete: 'Delete',
   },
 
-  label: {
-    phone: 'Номер телефона',
-    sms: 'СМС',
-  },
+  places: {
+    loading: 'Loading places',
+    noItems: 'No places saved',
 
-  validation: {
-    phone: 'Неправильно заполнен {_field_}',
-    edrpoyOrInn: 'ЕДРПОУ должен состоять из 8, а ИНН из 10 цифр',
-    iban: 'Неправильно заполнен IBAN',
-    phoneList: 'Неправильный телефон',
-  },
-
-  locales: {
-    short: {
-      ru: 'Рус',
-      uk: 'Укр',
-      en: 'Eng',
+    error: {
+      onLoad: "Can't load saved places!",
+      onAdd: "Can't add new place!",
+      onSelect: "Can't select a place!",
+      onDelete: "Can't delete place!",
+      onEdit: "Can't edit place!",
     },
-    full: {
-      ru: 'Русский',
-      uk: 'Український',
-      en: 'English',
-    },
+  },
+
+  weather: {
+    selectPlace: 'Select or add a place',
   },
 }

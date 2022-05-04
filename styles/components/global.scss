@@ -117,6 +117,33 @@ input[type='number'] {
   right: 0;
 }
 
+.pac-container {
+  margin-top: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+
+  .pac-item {
+    cursor: default;
+    padding: 10px 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 30px;
+    text-align: left;
+    border-top: 1px solid $gray6;
+    font-size: 16px;
+    color: $gray1;
+  }
+
+  .pac-icon {
+    display: none;
+  }
+
+  &::after {
+    content: none;
+  }
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;

@@ -2,7 +2,6 @@
   <header class="header">
     <div class="header__content">
       <div>WEATHER-APP</div>
-      <div>sdfsdf</div>
     </div>
   </header>
 </template>
@@ -15,10 +14,9 @@ export default {
 
 <style lang="scss">
 .header {
-  position: fixed;
-  top: 0;
   border-bottom: 1px solid $gray1;
   height: 80px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   width: 100%;

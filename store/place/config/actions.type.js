@@ -1,0 +1,5 @@
+export const SET_PLACES = 'setPlaces'
+export const SET_PLACE = 'setPlace'
+export const SET_CURRENT_PAGE = 'setCurrentPage'
+export const SELECT_PLACE = 'selectPlace'
+export const DELETE_PLACE = 'DeletePlace'

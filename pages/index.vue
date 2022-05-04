@@ -7,30 +7,35 @@
           :style="{ width: `${blockWidth}px` }"
         />
         <div v-else class="weather-info">
-          <perfect-scrollbar
-            v-if="blockWidth"
-            :style="{ width: `${blockWidth}px` }"
-          >
-            <div class="weather-list">
-              <day-card
-                v-for="([date, items], index) in weather"
-                :key="`day_${index}`"
-                :day="date"
-                :weather="getFirstDayWeather(items)"
+          <template v-if="weather">
+            <perfect-scrollbar
+              v-if="blockWidth"
+              :style="{ width: `${blockWidth}px` }"
+            >
+              <div class="weather-list">
+                <day-card
+                  v-for="([date, items], index) in weather"
+                  :key="`day_${index}`"
+                  :day="date"
+                  :weather="getFirstDayWeather(items)"
+                />
+              </div>
+            </perfect-scrollbar>
+            <div class="weather-info__list">
+              <lazy-weather-info
+                v-for="item in getWeatherBySelectedDay"
+                :key="`${item.dt_txt}_day-info`"
+                :weather="item"
               />
             </div>
-          </perfect-scrollbar>
-          <div class="weather-info__list">
-            <lazy-weather-info
-              v-for="item in getWeatherBySelectedDay"
-              :key="item.dt"
-              :weather="item"
-            />
-          </div>
+          </template>
+          <p v-else>
+            {{ $t('weather.selectPlace') }}
+          </p>
         </div>
       </transition>
     </div>
-    <div class="cities"></div>
+    <lazy-place-search />
   </div>
 </template>
 

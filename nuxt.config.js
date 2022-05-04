@@ -38,7 +38,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/google-map-service.js', mode: 'client' },
+    { src: '~/plugins/db.js', mode: 'client' },
     { src: '~/plugins/dayjs.js', mode: 'client' },
+    { src: '~/plugins/pagination.js', mode: 'client' },
     { src: '~/plugins/perfect-scroll.js', mode: 'client' },
     { src: '~/plugins/api.js', mode: 'client' },
     { src: '~/plugins/weatherParser.js', mode: 'client' },
@@ -68,14 +71,10 @@ export default {
     [
       '@nuxtjs/i18n',
       {
-        locales: [
-          { code: 'ru', iso: 'ru', file: 'ru' },
-          { code: 'uk', iso: 'uk', file: 'uk' },
-          { code: 'en', iso: 'en', file: 'en' },
-        ],
+        locales: [{ code: 'en', iso: 'en', file: 'en' }],
         langDir: 'locales/',
         seo: false,
-        defaultLocale: 'ru',
+        defaultLocale: 'en',
         lazy: true,
         vuex: {
           syncLocale: true,
@@ -87,6 +86,7 @@ export default {
   publicRuntimeConfig: {
     baseURL: process.env.BASE_URL,
     apiKey: process.env.API_KEY,
+    googleApiKey: process.env.GOOGLE_API_KEY,
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
